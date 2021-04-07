@@ -1,0 +1,67 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[swedish]{babel}
+
+\usepackage{parskip}
+\usepackage{setspace}
+\usepackage[babel]{microtype}
+\usepackage[labelsep=period, labelfont=bf, textfont=it, skip=5pt]{caption}
+\usepackage{dirtytalk}
+
+\usepackage[style=apa, citestyle=apa]{biblatex}
+\addbibresource{bibliography.bib}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\usepackage{svg}
+\svgpath{{images/}}
+% To include SVG figure:
+%\includesvg[inkscapelatex=false, width=\textwidth]{svg_image}
+
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
+\title{Magnetisk resonanstomografi}
+\author{Björn Sundin\medskip\\\normalsize Fysik 3 - NTI Kronhus}
+
+\begin{document}
+
+\maketitle
+
+\clearpage
+\section{Bakgrund}
+
+% https://www.gu.se/nmr-spektroskopi/vad-ar-nmr
+
+Magnetisk resonanstomografi förkortas ofta MRI (Magnetic Resonance Imaging). Även kärnmagnetisk resonans/NMR (Nuclear Magnetic Resonance) används som benämning, men denna används främst för det fysikaliska fenomenet och inte i sammanhang av diagnostiska undersökningar av individer \parencite{nmr_eller_mri}. \say{Magnetisk resonans} är mindre specifikt än \say{kärnmagnetisk resonans} eftersom det även finns elektronspinnresonans som involverar elektronen och inte atomkärnan, men ordet \say{nuclear} eller prefixet \say{kärn-} förknippas bland allmänheten med farliga saker, så man undviker ofta att använda den mer specifika benämningen.
+
+NMR används även inom kemin för att undersöka prover
+
+\parencite{mri_lärobok}
+
+\clearpage
+\section{Teori}
+Kärnan hos väteatomer består av en proton, som har spinnkvanttalet $s=\frac{1}{2}$. Spinnet gör att partikeln beter sig som en magnet med en nordpol och en sydpol. Det magnetiska spinnkvanttalet bestämmer det specifika spinntillståndet och kan ha värdena $m_s=s+n$ där $n\in\{-2s..0\}$. För 
+
+Bara kärnor med ett nollskiljt spinn kan användas för kärnmagnetisk resonans
+
+Spinnkvanttalet $s$ bestämmer ett rörelsemängdsmoment som är speciellt för varje typ av partikel. Endast riktningen av spinnet $m_s$ kan ändras hos en partikel, inte magnituden. Hos en elektron är $s=\frac{1}{2}$ och $m_s=\pm\frac{1}{2}$.
+
+Precession-frekvensen för protonerna bestäms av larmor-ekvationen \parencite{larmor_frekvens}:
+\begin{equation}
+    \omega=2\pi f=\gamma B_0
+\end{equation}
+
+\clearpage
+\section{Användningsområden}
+
+
+\clearpage
+\section{Avslutning}
+
+\clearpage
+\printbibliography
+
+\end{document}
