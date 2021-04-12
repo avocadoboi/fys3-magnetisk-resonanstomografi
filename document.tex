@@ -7,6 +7,7 @@
 \usepackage{setspace}
 \usepackage[babel]{microtype}
 \usepackage[labelsep=period, labelfont=bf, skip=5pt]{caption}
+\usepackage{subcaption}
 \usepackage{dirtytalk}
 
 \usepackage[style=apa, citestyle=apa]{biblatex}
@@ -44,7 +45,7 @@ Till skillnad från tidigare tekniker för diagnostisk avbildning såsom röntge
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.75\textwidth]{mri_patient}
+	\includegraphics[width=.75\textwidth]{mri_patient}
 	\caption{En patient som genomgår en MRI-undersökning. Foto av MART PRODUCTION \parencite*{fig:mri_patient} från Pexels.}
 	\label{fig:mri_patient}
 \end{figure}
@@ -58,36 +59,57 @@ Två av de främsta utvecklarna av MRI-teknologin var Paul Lauterbur och Peter M
 Magnetisk resonanstomografi började tillämpas i sjukvården redan i början av 1980-talet, och år 2002 fanns det mer än 22 000 magnetkameror i hela världen \parencite{mri_nobelpris_pressmeddelande}. Utvecklingen av MRI revolutionerade medicinen, och sedan dess har tekniken fortsatt att utvecklas och förfinas \parencite{mri_facts}. Magnetkameran används för att undersöka alla organ i kroppen. Några exempel på problem som undersöks med magnetkameror är abnormaliteter i hjärnan och ryggraden, tumörer och cystor i olika delar av kroppen, bröstcancer, skador i lederna, och hjärtproblem. En annan användning av MRI kallas fMRI (functional Magnetic Resonance Imaging), och innebär att man mäter kognitiv aktivitet i hjärnan genom att undersöka blodflödet i olika delar av hjärnan. Det ger viss information om neuronernas aktivitet även om det inte är vad man direkt mäter.
 
 \clearpage
-\section{Teori}
-\subsection{Utrustning}
+\section{Utrustning}
 Till att börja med kan det vara bra att införa ett koordinatsystem för att benämna olika axlar i MRI-systemet. Riktningen som går från patientens fötter till huvud är Z-axeln. X-axeln går från patientens högra till vänstra sida och Y-axeln går upp från marken, rygg till mage. Det här är ett vanligt koordinatsystem som används inom MRI \parencite{mri_for_radiologists}.
-
-Magnetkamerans största beståndsdel är den mycket starka elektromagneten. Elektromagneten består av en solenoidspole som bildar ett magnetiskt fält med flödestätheten $B_0$ i cylindern där patienten befinner sig under undersökningen. $B_0$ brukar vara 1.5 T eller 3 T i kliniskt bruk \parencite{understanding_mri}. Figur \ref{fig:solenoid} visar en sådan spole, de raka linjerna motsvarar fältet $B_0$ som går längs Z-axeln i MRI-systemet. För att uppnå så hög fältstyrka på ett effektivt sätt används en supraledande metallegering i spolen, som kyls ner till runt 4 K	med hjälp av flytande helium. 
 
 \begin{figure}[hp]
 	\centering
+	\includegraphics[width=.8\textwidth]{mri_schematic}
+	\caption{Diagram av en magnetkamera och placeringen av de olika spolarna. Bildkälla: \cite{fig:mri_spolar_diagram}.}
+	\label{fig:mri_diagram}
+\end{figure}
+
+Figur \ref{fig:mri_diagram} visar ett diagram av de primära komponenterna i en magnetkamera. Magnetkamerans största beståndsdel är den mycket starka elektromagneten, placerad längst ut från cylinderns center. Elektromagneten består av en solenoidspole som bildar ett magnetiskt fält med flödestätheten $B_0$ i centret där patienten befinner sig under undersökningen. $B_0$ brukar vara 1.5 T eller 3 T för kliniskt bruk \parencite{understanding_mri}. Figur \ref{fig:solenoid} visar en sådan spole, där de raka linjerna motsvarar fältet $B_0$ som går längs Z-axeln i MRI-systemet. För att uppnå den höga fältstyrkan på ett effektivt sätt används en supraledande metallegering i spolen, som kyls ner till runt 4 K med hjälp av flytande helium. Det gör att strömmen kan flöda med minimal resistans och därmed att den magnetiska flödestätheten blir större för samma effekt, enligt $B_0\propto\sqrt\frac{P}{R}$. Resistansen i supraledaren är dock så låg att detta samband inte beskriver systemet korrekt. Magneten kan hålla kvar strömmen helt utan pålagd spänning i flera år efter en första upprampning \parencite{mri_for_radiologists}.
+
+\begin{figure}[ht]
+	\centering
 	\includesvg{Solenoidspole}
-	\caption{En solenoidspole som kan liknas med den i magnetkameran.}
+	\caption{En solenoidspole som kan liknas med den starka elektromagneten i MRI-systemet. Bilkälla: \cite{fig:solenoid}.}
 	\label{fig:solenoid}
 \end{figure}
 
-Närmare centret av magnetkamerans cylinder finns en uppsättning gradient\-magnet-spolar . Dessa har syftet att variera magnetfältet linjärt över valfri tredimensionell riktning. 
+Närmare centret av magnetkamerans cylinder finns tre gradient\-magnet-spolar (se figur \ref{fig:mri_diagram}) \parencite{understanding_mri}. Dessa har syftet att variera magnetfältet linjärt över valfri tredimensionell riktning. Gradientmagneterna motsvarar de tre axlarna och deras styrkor kan justeras dynamiskt för att ändra det resulterande fältets riktning. Eftersom endast en tredimensionell relativ lutning av fältstyrka behövs är gradientmagneterna relativt svaga och är inte nedkylda. Gradientmagneterna justerar bara riktningen av det starka magnetfältet som kommer från den primära elektromagneten.
 
-\begin{figure}[hp]
-	\centering
-	\includegraphics[width=0.8\textwidth]{mri_schematic}
-	\caption{Diagram av en magnetkamera och placeringen av de olika spolarna.}
-\end{figure}
+Den tredje uppsättningen spolar är RF(Radio Frequency/radiofrekvens)-spolarna, som ligger ännu närmare patienten. Syftet med dessa är att skicka energi i form av elektromagnetiska vågor med en viss (icke-joniserande) frekvens i MHz-området (radiovågor) in i vävnaden, samt att detektera emitterade radiovågor från vävnaden. Radiofrekvens-fältet benämns $B_1$. För fMRI används en separat RF-spole vid huvudet för att maximera signalerna från hjärnan. Eftersom det finns många andra källor av radiovågor (exampelvis från radio\-kommunikation) som når ut till där magnetkameran befinner sig, behöver rummet vara en faradays bur. På så sätt kontaminerar inte de yttre och de inre radiovågorna varandra.
 
-\section{Fysik}
+En annan mycket viktig komponent av MRI-systemet är datorerna som behandlar all data och som ger operatören ett grafiskt användargränssnitt att styra med och se resultaten på. Dessa är placerade i ett annat rum, kontrollcentret där operatören sitter. Datan som samlas in av magnetkameran transformeras med komplexa signalbehandlings-algoritmer för att producera de resulterande bilderna.
+
+\section{Teori}
 
 %En grundläggande princip som utnyttjas i denna teknik är att energin som detekteras i NMR är proportionell mot magnetfältets styrka. Gradientmagneterna gör att magnetfältets styrka varierar linjärt på en axel, och detta gör alltså att den endimensionella projektionen kan erhållas. 
 
-Kärnan hos väteatomer består av en proton, som har spinnkvanttalet $s=\frac{1}{2}$. Spinnet gör att partikeln beter sig som en magnet med en nordpol och en sydpol. Det magnetiska spinnkvanttalet bestämmer det specifika spinntillståndet och kan ha värdena $m_s=s+n$ där $n\in\{-2s..0\}$. För 
+Subatomära partiklar har en kvantmekanisk egenskap som kallas spinn \parencite{kvanttal}. Spinnkvanttalet $s$ bestämmer magnituden av ett inre rörelsemängdsmoment $\vec{S}$, som är speciellt för varje typ av partikel. Man kan tänka sig att partikeln roterar runt en egen axel på samma sätt som en boll kan göra i klassisk fysik. Den liknelsen håller dock inte hela vägen, och den är extra orimlig för just elektroner \parencite{electron_spin}. I klassisk fysik bestäms rörelsemängdsmomentet hos en partikel av kryssprodukten $\vec{L}=m\vec{r}\times\vec{v}$, där $\vec{r}$ är partikelns position relativt rotationens center och $\vec{v}$ är hastighetsvektorn vid samma tidpunkt. I kvantmekaniken har rörelsemängdsmomentet för partiklar samma riktning som denna, men magnituden bestäms på ett annat sätt. Magnituden av rörelsemängds\-momentet bestäms av $S=\hbar\sqrt{s(s+1)}$ (där $\hbar=\frac{h}{2\pi}$). $s$ förekommer hos partiklar kvantiserat i steg av $\frac{1}{2}$, vilket innebär att $S$ också är kvantiserat. Protoner, neutroner och elektroner har $s=\frac{1}{2}$ medan vissa andra partiklar har $s=1$ eller $s=0$. Partiklar med heltals-spinn (inklusive 0) är fermioner och partiklar med halvtaligt spinn är bosoner \parencite{subatomic_particles}.
+
+Partiklar som både har en laddning och ett spinntal $s\neq 0$ beter sig som en magnet, med ett magnetiskt dipolmoment $\vec{\mu}$ riktat i samma riktning som $\vec{S}$. Detta kan liknas med en elektromagnet, där negativt laddade elektroner flödar i en cirkulär rörelse och därmed bildar ett magnetiskt dipolmoment med motsatta riktningen av elektronens rörelsemängdsmoment. När denna partikeln dessutom placeras i ett homogent yttre magnetfält så börjar dipolmomentet precessera likt en snurra, se figur \ref{fig:snurra_precession} och \ref{fig:magnetiskt_moment_precession}.
+
+Projektionen av rörelsemängdsmomentets vektor $\vec{S}$ längs  Endast projektionen av spinnet längs en viss axel $m_s$ kan ändras hos en partikel, inte magnituden. Hos en elektron är $s=\frac{1}{2}$ och $m_s=\pm\frac{1}{2}$.
+
+Kärnan hos väteatomer består av en proton, som har spinnkvanttalet $s=\frac{1}{2}$ . Det magnetiska spinnkvanttalet bestämmer det specifika spinntillståndet och kan ha värdena $m_s=s+n$ där $n\in\{-2s..0\}$. 
+
+\begin{figure}[hp]
+	\centering
+	\includegraphics[width=.5\textwidth]{snurra_precession}
+	\caption{Precession av en snurra, där $L$ är rörelsemängdsmoment-vektorn, $\omega_p$ är precessions-frekvensen och $\omega_s$ är spinnfrekvensen. Vridmomentet $\tau$ bildas av gravitationskraften $F_g$ och den reaktiva normalkraften $-F_g$ vid bordets yta. Riktningen av detta vridmoment vrids på grund av spinnet och gör att snurran precesserar. Bildkälla: Xavier Snelgrove \parencite*{fig:snurra_precession}, CC BY-SA 2.5, via Wikimedia Commons.}
+	\label{fig:snurra_precession}
+\end{figure}
+\begin{figure}[hp]
+	\centering
+	\includegraphics[width=.5\textwidth]{magnetic_moment_precession}
+	\caption{En partikel med ett kvantspinn som gör att det magnetiska dipolmomentet $\vec\mu$ bildas, placerat i ett yttre magnetfält $\vec B_0$ som gör att dipolmomentet precesserar likt snurran. Källa: \cite{mri_lärobok}}
+	\label{fig:magnetiskt_moment_precession}
+\end{figure}
 
 Bara kärnor med ett nollskiljt spinn kan användas för kärnmagnetisk resonans
-
-Spinnkvanttalet $s$ bestämmer ett rörelsemängdsmoment som är speciellt för varje typ av partikel. Endast riktningen av spinnet $m_s$ kan ändras hos en partikel, inte magnituden. Hos en elektron är $s=\frac{1}{2}$ och $m_s=\pm\frac{1}{2}$.
 
 Precession-frekvensen för protonerna bestäms av larmor-ekvationen:
 \begin{equation}
