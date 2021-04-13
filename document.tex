@@ -84,37 +84,42 @@ Den tredje uppsättningen spolar är RF(Radio Frequency/radiofrekvens)-spolarna,
 
 En annan mycket viktig komponent av MRI-systemet är datorerna som behandlar all data och som ger operatören ett grafiskt användargränssnitt att styra med och se resultaten på. Dessa är placerade i ett annat rum, kontrollcentret där operatören sitter. Datan som samlas in av magnetkameran transformeras med komplexa signalbehandlings-algoritmer för att producera de resulterande bilderna.
 
+\clearpage
 \section{Teori}
 
 %En grundläggande princip som utnyttjas i denna teknik är att energin som detekteras i NMR är proportionell mot magnetfältets styrka. Gradientmagneterna gör att magnetfältets styrka varierar linjärt på en axel, och detta gör alltså att den endimensionella projektionen kan erhållas. 
 
-Subatomära partiklar har en kvantmekanisk egenskap som kallas spinn \parencite{kvanttal}. Spinnkvanttalet $s$ bestämmer magnituden av ett inre rörelsemängdsmoment $\vec{S}$, som är speciellt för varje typ av partikel. Man kan tänka sig att partikeln roterar runt en egen axel på samma sätt som en boll kan göra i klassisk fysik. Den liknelsen håller dock inte hela vägen, och den är extra orimlig för just elektroner \parencite{electron_spin}. I klassisk fysik bestäms rörelsemängdsmomentet hos en partikel av kryssprodukten $\vec{L}=m\vec{r}\times\vec{v}$, där $\vec{r}$ är partikelns position relativt rotationens center och $\vec{v}$ är hastighetsvektorn vid samma tidpunkt. I kvantmekaniken har rörelsemängdsmomentet för partiklar samma riktning som denna, men magnituden bestäms på ett annat sätt. Magnituden av rörelsemängds\-momentet bestäms av $S=\hbar\sqrt{s(s+1)}$ (där $\hbar=\frac{h}{2\pi}$). $s$ förekommer hos partiklar kvantiserat i steg av $\frac{1}{2}$, vilket innebär att $S$ också är kvantiserat. Protoner, neutroner och elektroner har $s=\frac{1}{2}$ medan vissa andra partiklar har $s=1$ eller $s=0$. Partiklar med heltals-spinn (inklusive 0) är fermioner och partiklar med halvtaligt spinn är bosoner \parencite{subatomic_particles}.
+I magnetisk resonanstomografi studeras kärnan hos väte, protonen. Detta är delvis för att människor innehåller så mycket väte, främst i vattnet som vi består av till runt 60\%. Men det är också på grund av protonens kvantmekaniska egenskaper. Härefter kommer en bakgrund till de kvantmekaniska principerna som MRI bygger på.
 
-Partiklar som både har en laddning och ett spinntal $s\neq 0$ beter sig som en magnet, med ett magnetiskt dipolmoment $\vec{\mu}$ riktat i samma riktning som $\vec{S}$. Detta kan liknas med en elektromagnet, där negativt laddade elektroner flödar i en cirkulär rörelse och därmed bildar ett magnetiskt dipolmoment med motsatta riktningen av elektronens rörelsemängdsmoment. När denna partikeln dessutom placeras i ett homogent yttre magnetfält så börjar dipolmomentet precessera likt en snurra, se figur \ref{fig:snurra_precession} och \ref{fig:magnetiskt_moment_precession}.
+Subatomära partiklar har en kvantmekanisk egenskap som kallas spinn \parencite{college_physics}. Spinnkvanttalet $s$ bestämmer magnituden av ett inre rörelsemängdsmoment $\vec{S}$, som är speciellt för varje typ av partikel. Man kan tänka sig att partikeln roterar runt en egen axel på samma sätt som en boll kan göra i klassisk fysik. Den liknelsen håller dock inte hela vägen, och den är extra orimlig för just elektroner - den hypotetiska ytan hade behövt röra sig med en hastighet snabbare än ljusets för att det inre rörelsemängdsmomentet ska vara korrekt \parencite{electron_spin}. 
 
-Projektionen av rörelsemängdsmomentets vektor $\vec{S}$ längs  Endast projektionen av spinnet längs en viss axel $m_s$ kan ändras hos en partikel, inte magnituden. Hos en elektron är $s=\frac{1}{2}$ och $m_s=\pm\frac{1}{2}$.
+\say{spinn} används här som synonym till $\vec{S}$, alltså \say{inre rörelsemängds\-moment hos en subatomär partikel}, och är en vektor. I klassisk fysik bestäms rörelse\-mängdsmomentet hos en partikel av kryssprodukten $\vec{L}=m\vec{r}\times\vec{v}$, där $\vec{r}$ är partikelns position relativt rotationens center och $\vec{v}$ är hastighetsvektorn vid samma tidpunkt. Man kan tänka sig vår subatomära partikel består av mindre partiklar, och det totala rörelsemängdsmomentet hos dessa har samma riktning som spinnet. Alltså uppåt om den roterar motsols sett uppifrån i transversalplanet. Magnituden av spinnet kan bestämmas av $S=\hbar\sqrt{s(s+1)}\:\left[\si{kg.m^2.s^{-1}}\right]$ (där $\hbar=\frac{h}{2\pi}$) \parencite{college_physics}. $s$ förekommer kvantiserat i steg av $\frac{1}{2}$, vilket innebär att $S$ också är kvantiserat. Protoner, neutroner och elektroner har $s=\frac{1}{2}$ medan vissa andra partiklar har $s=1$ eller $s=0$. Partiklar med heltals-spinn (inklusive 0) är fermioner och partiklar med halvtaligt spinn är bosoner \parencite{subatomic_particles}.
 
-Kärnan hos väteatomer består av en proton, som har spinnkvanttalet $s=\frac{1}{2}$ . Det magnetiska spinnkvanttalet bestämmer det specifika spinntillståndet och kan ha värdena $m_s=s+n$ där $n\in\{-2s..0\}$. 
+Partiklar som både har en laddning och ett spinntal $s\neq 0$ beter sig som en magnet, med ett magnetiskt dipolmoment $\vec{\mu}$ riktat i samma riktning som $\vec{S}$ om laddningen är positiv. Detta kan liknas med en elektromagnet, där negativt laddade elektroner flödar i en cirkulär rörelse och därmed bildar ett magnetiskt dipolmoment med motsatta riktningen av elektronens rörelsemängdsmoment. Dipolmomentet definieras klassiskt som strömmen i spolen gånger cirkelns area, $\mu=IA$, och har enheten \si{\left[A.m^2\right]} \parencite{magnetism}. Dipolmomentet hos en subatomär partikel relateras till spinnet genom $\vec{\mu}=\gamma\vec{S}$, där $\gamma$ är den gyromagnetiska kvoten för partikeln \parencite{larmor_precession}, som vi återkommer till. $\gamma$ är \SI{2.675 221 900(18) e8}{\left[s^{-1}.T^{-1}\right]} för protoner \parencite{gyro_ratio}. 
 
-\begin{figure}[hp]
+\begin{figure}[p]
 	\centering
 	\includegraphics[width=.5\textwidth]{snurra_precession}
 	\caption{Precession av en snurra, där $L$ är rörelsemängdsmoment-vektorn, $\omega_p$ är precessions-frekvensen och $\omega_s$ är spinnfrekvensen. Vridmomentet $\tau$ bildas av gravitationskraften $F_g$ och den reaktiva normalkraften $-F_g$ vid bordets yta. Riktningen av detta vridmoment vrids på grund av spinnet och gör att snurran precesserar. Bildkälla: Xavier Snelgrove \parencite*{fig:snurra_precession}, CC BY-SA 2.5, via Wikimedia Commons.}
 	\label{fig:snurra_precession}
 \end{figure}
-\begin{figure}[hp]
+\begin{figure}[p]
 	\centering
 	\includegraphics[width=.5\textwidth]{magnetic_moment_precession}
 	\caption{En partikel med ett kvantspinn som gör att det magnetiska dipolmomentet $\vec\mu$ bildas, placerat i ett yttre magnetfält $\vec B_0$ som gör att dipolmomentet precesserar likt snurran. Källa: \cite{mri_lärobok}}
 	\label{fig:magnetiskt_moment_precession}
 \end{figure}
 
-Bara kärnor med ett nollskiljt spinn kan användas för kärnmagnetisk resonans
+När en partikel med en egen magnetisk dipol dessutom placeras i ett homogent yttre magnetfält $\vec{B_0}$ så börjar dipolmomentet precessera runt det likt hur en makroskopisk snurra precesserar runt ett gravitationsfält \parencite{larmor_precession}, se figur \ref{fig:snurra_precession} och \ref{fig:magnetiskt_moment_precession}. Detta leder till två saker:
+\begin{enumerate}
+	\item Spinnet $\vec{S}$ har en viss vinkel ($\theta$ i figur \ref{fig:magnetiskt_moment_precession}) mot Z-axeln ($\vec{B_0}$). Projektionen av $\vec{S}$ längs Z-axeln bestäms av $S_z=m_s\hbar$, där $m_s$ är kvanttalet för spinnets projektion och är kvantiserat till värdena $m_s=s+n$ där $n\in\{-2s..0\}$ \parencite{university_physics}.
+	\item $\vec{\mu}$ precesserar med en viss frekvens som kallas Larmorfrekvensen, och även denna bestäms med hjälp av den gyromagnetiska kvoten i Larmor-ekvationen \parencite{mri_lärobok}:
+	\begin{equation}
+		\omega=2\pi f=\gamma B_0\:[\si{rad/s}]
+	\end{equation}
+\end{enumerate}
 
-Precession-frekvensen för protonerna bestäms av larmor-ekvationen:
-\begin{equation}
-	\omega=2\pi f=\gamma B_0\:[\si{rad/s}]
-\end{equation}
+Endast spinntillståndet $m_s$ kan ändras hos en partikel, inte magnituden $s$. Hos protonen, likt elektronen, är $s=\frac{1}{2}$ och $m_s=\pm\frac{1}{2}$. Eftersom $s$ alltid har samma värde för elektroner brukar spinnkvanttalet utelämnas, eller syfta på $m_s$. $m_s=\frac{1}{2}$ innebär att $\vec{\mu}$ ligger parallellt med $\vec{B_0}$ och $m_s=-\frac{1}{2}$ innebär att det ligger antiparallellt mot fältet. Det parallella tillståndet har något lägre potentiell energi än det antiparallella tillståndet \parencite{electron_spin}. 
 
 \clearpage
 \section{Användningsområden}
