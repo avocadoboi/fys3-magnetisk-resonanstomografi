@@ -17,6 +17,7 @@
 \usepackage{amsfonts}
 \usepackage{siunitx}
 
+\usepackage{tikz}
 \usepackage{svg}
 \svgpath{{images/}}
 % To include SVG figure:
@@ -39,7 +40,7 @@
 \clearpage
 \section{Bakgrund}
 
-Magnetisk resonanstomografi, förkortat MRT eller MRI (Magnetic Resonance Imaging) är en teknik som används inom sjukvården för att ge detaljrika bilder av vävnad och organ hos människor och djur på ett ofarligt och icke-påträngande sätt \parencite{mri_nobelpris_pressmeddelande}. MRI-scannern som används i sjukvården består av en cylinder med ett skjutbart bord i som patienten ligger på, se figur \ref{fig:mri_patient}. 
+Magnetisk resonanstomografi, förkortat MRT eller MRI (Magnetic Resonance Imaging) är en teknik som används inom sjukvården för att skapa detaljrika bilder av vävnad och organ hos människor och djur på ett ofarligt och icke-påträngande sätt \parencite{mri_nobelpris_pressmeddelande}. MRI-scannern som används i sjukvården består av en cylinder med ett skjutbart bord i som patienten ligger på, se figur \ref{fig:mri_patient}. 
 
 Till skillnad från tidigare tekniker för diagnostisk avbildning såsom röntgen, används ingen joniserande strålning i MRI-undersökningar. Istället används ett mycket starkt magnetfält och radiovåg-pulsar. Tekniken bygger på konceptet av kärnmagnetisk resonans/NMR (Nuclear Magnetic Resonance), vars teori hade sina rötter i upptäckten av protonens spinnegenskaper under 1920-talet \parencite{mri_lärobok}.
 
@@ -52,7 +53,7 @@ Till skillnad från tidigare tekniker för diagnostisk avbildning såsom röntge
 
 Benämningen NMR används främst för det fysikaliska fenomenet och inte längre i sammanhang av diagnostiska undersökningar av individer \parencite{nmr_eller_mri}. \say{Magnetisk resonans} är mindre specifikt än \say{kärnmagnetisk resonans} eftersom det även finns elektronspinnresonans som involverar elektronen och inte atomkärnan. Ordet \say{nuclear} eller prefixet \say{kärn-} förknippas med farliga saker av allmänheten, så man undviker ofta att använda den mer specifika benämningen trots att det bara syftar på att man studerar atomkärnan.
 
-Kärnmagnetisk resonans används även inom kemin för att undersöka strukturen hos olika ämnen \parencite{nmr_kemi}. Då produceras ett NMR-spektra, istället för en 2D- eller 3D-bild, som avslöjar egenskaper hos ämnet. År 1945 utvecklade Felix Bloch och Edward Mills Purcell, med kunskap om kvantmekaniken som utvecklades under 1930-talet och tidigare, de första mätningarna som använde sig av kärnmagnetisk resonans \parencite{mri_lärobok}. De mätte signaler från ett vattenprov och ett paraffinprov, och förklarade de experimentella och teoretiska detaljerna av NMR. För detta delade Bloch och Purcell nobelpriset i fysik år 1952 \parencite{nmr_nobelpris}.
+Kärnmagnetisk resonans används även inom kemin för att undersöka strukturen hos olika ämnen \parencite{nmr_kemi}. Då produceras ett NMR-spektra, istället för en 2D- eller 3D-bild, som avslöjar egenskaper hos ämnet. År 1945 utvecklade Felix Bloch och Edward Mills Purcell, med kunskap om kvantmekaniken som utvecklades under 1930-talet och tidigare, de första mätningarna som använde sig av kärnmagnetisk resonans \parencite{mri_lärobok}. De mätte då signaler från ett vattenprov och ett paraffinprov, och förklarade de experimentella och teoretiska detaljerna av NMR. För detta delade Bloch och Purcell nobelpriset i fysik år 1952 \parencite{nmr_nobelpris}.
 
 Två av de främsta utvecklarna av MRI-teknologin var Paul Lauterbur och Peter Mansfield \parencite{mri_nobelpris_pressmeddelande}. Under 1970-talet gjorde Lauterbur och Mansfield flera upptäckter som lade en grund för utvecklingen av MRI. 1973 beskrev Lauterbur hur gradientmagneter kunde användas tillsammans med NMR för att göra flera endimensionella projektioner av ett objekt, som sedan sätts ihop till en två- eller tre-dimensionell bild. I hans experiment kunde han använda tekniken för att skilja på vanligt och tungt vatten, något som ingen annan avbildningsmetod kunde göra. Samma år utnyttjade Mansfield tillsammans med Peter Grannell gradientmagneter med NMR för att undersöka strukturen i fasta ämnen på ett mer exakt sätt. 1977 tog Mansfield fram en ny metod för NMR-avbildning som utnyttjade egenskaperna hos en effekt som kallas spinn-eko i gradientmagneterna. Denna nya metod kunde producera bilder snabbare än tidigare metoder. Lauterbur och Mansfield fick år 2003 nobelpriset i Fysiologi eller Medicin för sina bidrag till MRI-tekniken \parencite{mri_nobelpris_pressmeddelande}.
 
@@ -89,13 +90,13 @@ En annan mycket viktig komponent av MRI-systemet är datorerna som behandlar all
 
 %En grundläggande princip som utnyttjas i denna teknik är att energin som detekteras i NMR är proportionell mot magnetfältets styrka. Gradientmagneterna gör att magnetfältets styrka varierar linjärt på en axel, och detta gör alltså att den endimensionella projektionen kan erhållas. 
 
-I magnetisk resonanstomografi studeras kärnan hos väte, protonen. Detta är delvis för att människor innehåller så mycket väte, främst i vattnet som vi består av till runt 60\%. Men det är också på grund av protonens kvantmekaniska egenskaper. Härefter kommer en bakgrund till de kvantmekaniska principerna som MRI bygger på.
+I magnetisk resonanstomografi studeras kärnan hos väte, protonen. Detta är delvis för att människor innehåller så mycket väte, främst i vattnet som vi består av till runt 66\% \parencite{mri_nobelpris_pressmeddelande}. Men det är också på grund av protonens kvantmekaniska egenskaper. Härefter kommer en bakgrund till de kvantmekaniska principerna som MRI bygger på.
 
 Subatomära partiklar har en kvantmekanisk egenskap som kallas spinn \parencite{college_physics}. Spinnkvanttalet $s$ bestämmer magnituden av ett inre rörelsemängdsmoment $\vec{S}$, som är speciellt för varje typ av partikel. Man kan tänka sig att partikeln roterar runt en egen axel på samma sätt som en boll kan göra i klassisk fysik. Den liknelsen håller dock inte hela vägen, och den är extra orimlig för just elektroner - den hypotetiska ytan hade behövt röra sig med en hastighet snabbare än ljusets för att det inre rörelsemängdsmomentet ska vara korrekt \parencite{electron_spin}. 
 
-\say{spinn} används här som synonym till $\vec{S}$, alltså \say{inre rörelsemängds\-moment hos en subatomär partikel}, och är en vektor. I klassisk fysik bestäms rörelse\-mängdsmomentet hos en partikel av kryssprodukten $\vec{L}=m\vec{r}\times\vec{v}$, där $\vec{r}$ är partikelns position relativt rotationens center och $\vec{v}$ är hastighetsvektorn vid samma tidpunkt. Man kan tänka sig vår subatomära partikel består av mindre partiklar, och det totala rörelsemängdsmomentet hos dessa har samma riktning som spinnet. Alltså uppåt om den roterar motsols sett uppifrån i transversalplanet. Magnituden av spinnet kan bestämmas av $S=\hbar\sqrt{s(s+1)}\:\left[\si{kg.m^2.s^{-1}}\right]$ (där $\hbar=\frac{h}{2\pi}$) \parencite{college_physics}. $s$ förekommer kvantiserat i steg av $\frac{1}{2}$, vilket innebär att $S$ också är kvantiserat. Protoner, neutroner och elektroner har $s=\frac{1}{2}$ medan vissa andra partiklar har $s=1$ eller $s=0$. Partiklar med heltals-spinn (inklusive 0) är fermioner och partiklar med halvtaligt spinn är bosoner \parencite{subatomic_particles}.
+\say{spinn} används här som synonym till $\vec{S}$, alltså \say{inre rörelsemängds\-moment hos en subatomär partikel}, och är en vektor. I klassisk fysik bestäms rörelse\-mängdsmomentet hos en partikel av kryssprodukten $\vec{L}=m\vec{r}\times\vec{v}$, där $\vec{r}$ är partikelns position relativt rotationens center och $\vec{v}$ är hastighetsvektorn vid samma tidpunkt. Man kan tänka sig att vår subatomära partikel består av mindre partiklar, och det totala rörelsemängdsmomentet hos dessa har samma riktning som spinnet. Alltså uppåt om den roterar motsols sett uppifrån i transversalplanet. Magnituden av spinnet kan bestämmas av $S=\hbar\sqrt{s(s+1)}\:\left[\si{kg.m^2.s^{-1}}\right]$ (där $\hbar=\frac{h}{2\pi}$) \parencite{college_physics}. $s$ förekommer kvantiserat i steg av $\frac{1}{2}$ hos olika partiklar, vilket innebär att $S$ och $\vec{S}$ också är kvantiserat. Protoner, neutroner och elektroner har $s=\frac{1}{2}$ medan vissa andra partiklar har $s=1$ eller $s=0$. Partiklar med heltals-spinn (inklusive 0) klassas som fermioner och partiklar med halvtaligt spinn är bosoner \parencite{subatomic_particles}.
 
-Partiklar som både har en laddning och ett spinntal $s\neq 0$ beter sig som en magnet, med ett magnetiskt dipolmoment $\vec{\mu}$ riktat i samma riktning som $\vec{S}$ om laddningen är positiv. Detta kan liknas med en elektromagnet, där negativt laddade elektroner flödar i en cirkulär rörelse och därmed bildar ett magnetiskt dipolmoment med motsatta riktningen av elektronens rörelsemängdsmoment. Dipolmomentet definieras klassiskt som strömmen i spolen gånger cirkelns area, $\mu=IA$, och har enheten \si{\left[A.m^2\right]} \parencite{magnetism}. Dipolmomentet hos en subatomär partikel relateras till spinnet genom $\vec{\mu}=\gamma\vec{S}$, där $\gamma$ är den gyromagnetiska kvoten för partikeln \parencite{larmor_precession}, som vi återkommer till. $\gamma$ är \SI{2.675 221 900(18) e8}{\left[s^{-1}.T^{-1}\right]} för protoner \parencite{gyro_ratio}. 
+Partiklar som både har en laddning och ett spinntal $s\neq 0$ beter sig som en magnet, med ett magnetiskt dipolmoment $\vec{\mu}$ riktat i samma riktning som $\vec{S}$ om laddningen är positiv. Detta kan liknas med en elektromagnet, där negativt laddade elektroner flödar i en cirkulär rörelse och därmed bildar ett magnetiskt dipolmoment med motsatta riktningen av elektronens rörelsemängdsmoment. Dipolmomentets magnitud definieras klassiskt som strömmen i spolen gånger cirkelns area, $\mu=IA=\pi Ir^2$, och har enheten \si{\left[A.m^2\right]} \parencite{magnetism}. Dipolmomentet hos en subatomär partikel relateras till spinnet genom $\vec{\mu}=\gamma\vec{S}$, där $\gamma$ är den gyromagnetiska kvoten för partikeln \parencite{larmor_precession}, som vi återkommer till. $\gamma$ är \SI{2.675 221 900(18) e8}{\left[s^{-1}.T^{-1}\right]} för protoner \parencite{gyro_ratio}. 
 
 \begin{figure}[p]
 	\centering
@@ -114,12 +115,39 @@ När en partikel med en egen magnetisk dipol dessutom placeras i ett homogent yt
 \begin{enumerate}
 	\item Spinnet $\vec{S}$ har en viss vinkel ($\theta$ i figur \ref{fig:magnetiskt_moment_precession}) mot Z-axeln ($\vec{B_0}$). Projektionen av $\vec{S}$ längs Z-axeln bestäms av $S_z=m_s\hbar$, där $m_s$ är kvanttalet för spinnets projektion och är kvantiserat till värdena $m_s=s+n$ där $n\in\{-2s..0\}$ \parencite{university_physics}.
 	\item $\vec{\mu}$ precesserar med en viss frekvens som kallas Larmorfrekvensen, och även denna bestäms med hjälp av den gyromagnetiska kvoten i Larmor-ekvationen \parencite{mri_lärobok}:
-	\begin{equation}
+	\begin{equation}\label{eq:larmor}
 		\omega=2\pi f=\gamma B_0\:[\si{rad/s}]
 	\end{equation}
+	Frekvensen ökar alltså linjärt med magnetfältetets styrka.
 \end{enumerate}
 
-Endast spinntillståndet $m_s$ kan ändras hos en partikel, inte magnituden $s$. Hos protonen, likt elektronen, är $s=\frac{1}{2}$ och $m_s=\pm\frac{1}{2}$. Eftersom $s$ alltid har samma värde för elektroner brukar spinnkvanttalet utelämnas, eller syfta på $m_s$. $m_s=\frac{1}{2}$ innebär att $\vec{\mu}$ ligger parallellt med $\vec{B_0}$ och $m_s=-\frac{1}{2}$ innebär att det ligger antiparallellt mot fältet. Det parallella tillståndet har något lägre potentiell energi än det antiparallella tillståndet \parencite{electron_spin}. 
+Hos protonen, likt elektronen, är $s=\frac{1}{2}$ och $m_s=\pm\frac{1}{2}$ \parencite{college_physics}. Vinkeln av spinnet mot Z-axeln blir då $\theta_z=\arccos\sqrt\frac{1}{3}\approx54.7^\circ$. Eftersom $s$ alltid har samma värde för elektroner brukar spinnkvanttalet utelämnas från kvanttalen, eller syfta på $m_s$. $m_s=\frac{1}{2}$ innebär att $\vec{\mu}$ precesserar parallellt med $\vec{B_0}$ och $m_s=-\frac{1}{2}$ innebär att det precesserar antiparallellt mot fältet. Det parallella tillståndet har något lägre potentiell energi än det antiparallella tillståndet eftersom det tar ett arbete för att motverka magnetfältet \parencite{electron_spin}. Spinnprojektionstalet $m_s$ kan ändras hos en partikel eftersom det motsvarar olika energinivåer, medan magnituden $s$ är konstant. 
+
+Tillbaka till magnetkameran. Vi börjar med att bortse från gradientmagneterna. När en människa placeras i magnetkameran utsätts alla protonerna i kroppen för det magnetiska fältet $\vec{B_0}$ riktat från fötterna till huvudet på personen \parencite{understanding_mri}. Det gör att ungefär hälften av protonernas magnetiska moment precesserar i samma riktning som magnetfältet och hälften antiparallellt. Eftersom de antiparallella har en något högre energinivå kommer det dock finnas ett litet underskott av dessa. För 10 miljoner protoner som precesserar antiparallellt finns det ungefär 10 000 007 som precesserar parallellt med $\vec{B_0}$. Alla protonerna precesserar med samma frekvens, men eftersom de har slumpmässig fasförskjutning kommer det totala magnetiska momentet i personen vara riktat i precis samma riktning som $\vec{B_0}$, vilket illustreras i figur \ref{fig:spinn_vektorer}. Personens totala magnetiska dipolmoment i detta tillfälle kallas också för den longitudinella magnetiseringen.
+
+\begin{figure}[ht]
+	\centering
+	\includesvg[width=0.8\textwidth]{spinn_vektorer}
+	\caption{Illustrativt diagram av det magnetiska momentet hos olika protoner i kroppen på personen i magnetkameran. Vinklarna är skalenliga men inte längderna eller antalen. Rosa vektorer är individuella $\vec{\mu}$ hos olika protoner vid en viss tidpunkt, med något fler i parallellt spinntillstånd än antiparallellt. Blå vektor är hela personens magnetiska moment $\sum{\vec{\mu_n}}$ (longitudinell magnetisering) och har därmed samma riktning som $\vec{B_0}$.}
+	\label{fig:spinn_vektorer}
+\end{figure}
+
+Personens magnetisering kan inte mätas eftersom den ligger i riktning med $\vec{B_0}$. För att få information och vävnaden och dess struktur använder man sig av de tidigare nämnda RF-spolarna. Strömmen i en RF-spole varierar med en frekvens vilket gör att magnetfältet som bildas av spolen oscillerar med den frekvensen; elektromagnetiska vågor sänds ut. När frekvensen är inställd till larmorfrekvensen, alltså den som protonernas egna magnetfält precesserar med, så sker magnetisk resonans. Det innebär två saker:
+\begin{enumerate}
+	\item Protoner kan ta upp energin $E=hf=2\pi h\gamma B_0$ (ekvation \ref{eq:larmor}) och gå från det parallella spinntillståndet till det antiparallella tillståndet.
+	\item Alla protonernas magnetiska moment börjar precessera i fas med varandra och de elektromagnetiska vågorna, så att den totala magnetiseringen precesserar på samma sätt som en enskild proton.
+\end{enumerate}
+
+Hur många av protonerna som övergår till det antiparallella tillståndet beror på styrkan och varaktigheten av den elektromagnetiska pulsen \parencite{mri_for_radiologists}. Detta innebär att vinkeln mot Z-axeln $\theta_z$ av det totala dipolmomentet går från $0^\circ$ till en ny vinkel som är större ju fler protoner som tagit upp energi från pulsen. Inom MRI används främst en RF-puls som gör att det totala dipolmomentet ligger i XY-planet precis när pulsen stängs av, en så kallad $90^\circ$-puls. 
+
+När pulsen är avslagen börjar protonerna återgå till sina ursprungliga energinivåer och deras dipolmoment hamnar återigen ur fas med varandra. Detta sker över tid så att det totala dipolmomentet rör sig på ett sätt som illustreras i figur \ref{fig:relaxation}. Denna återgång kallas relaxation.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{relaxation}
+	\caption{Rörelsen av det totala magnetiska dipolmomentet hos personen i magnetkameran under relaxationen efter en $90^\circ$-RF-puls. Källa: \cite{mri_lärobok}.}
+	\label{fig:relaxation}
+\end{figure}
 
 \clearpage
 \section{Användningsområden}
