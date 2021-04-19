@@ -102,7 +102,7 @@ Partiklar som både har en laddning och ett spinntal $s\neq 0$ beter sig som en 
 \begin{figure}[p]
 	\centering
 	\includegraphics[width=.5\textwidth]{snurra_precession}
-	\caption{Precession av en snurra, där $L$ är rörelsemängdsmoment-vektorn, $\omega_p$ är precessions-frekvensen och $\omega_s$ är spinnfrekvensen. Vridmomentet $\tau$ bildas av gravitationskraften $F_g$ och den reaktiva normalkraften $-F_g$ vid bordets yta. Riktningen av detta vridmoment vrids på grund av spinnet och gör att snurran precesserar. Bildkälla: Xavier Snelgrove \parencite*{fig:snurra_precession}, CC BY-SA 2.5, via Wikimedia Commons.}
+	\caption{Precession av en snurra, där $L$ är rörelsemängdsmoment-vektorn, $\omega_p$ är precessions-frekvensen och $\omega_s$ är spinnfrekvensen. Vridmomentet $\tau$ bildas av gravitationskraften $F_g$ och den reaktiva normalkraften $-F_g$ vid bordets yta. Riktningen av detta vridmoment vrids på grund av det egna spinnet och gör att snurran precesserar. Bildkälla: Xavier Snelgrove \parencite*{fig:snurra_precession}, CC BY-SA 2.5, via Wikimedia Commons.}
 	\label{fig:snurra_precession}
 \end{figure}
 \begin{figure}[p]
@@ -113,18 +113,18 @@ Partiklar som både har en laddning och ett spinntal $s\neq 0$ beter sig som en 
 \end{figure}
 
 När en partikel med en egen magnetisk dipol dessutom placeras i ett homogent yttre magnetfält $\vec{B_0}$ så börjar dipolmomentet precessera runt det likt hur en makroskopisk snurra precesserar runt ett gravitationsfält \parencite{larmor_precession}, se figur \ref{fig:snurra_precession} och \ref{fig:magnetiskt_moment_precession}. Detta leder till två saker:
-\begin{enumerate}
+\begin{itemize}
 	\item Spinnet $\vec{S}$ har en viss vinkel ($\theta$ i figur \ref{fig:magnetiskt_moment_precession}) mot Z-axeln. Projektionen av $\vec{S}$ längs Z-axeln bestäms av $S_z=m_s\hbar$, där $m_s$ är kvanttalet för spinnets projektion och är kvantiserat till värdena $m_s=s+n$ där $n\in\{-2s..0\}$ \parencite{university_physics}.
 	\item $\vec{\mu}$ precesserar med en viss frekvens som kallas Larmorfrekvensen, och även denna bestäms med hjälp av den gyromagnetiska kvoten i Larmor-ekvationen \parencite{mri_lärobok}:
 	\begin{equation}\label{eq:larmor}
 		\omega=2\pi f=\gamma B_0\:[\si{rad/s}]
 	\end{equation}
 	Frekvensen ökar alltså linjärt med magnetfältetets styrka.
-\end{enumerate}
+\end{itemize}
 
 Hos protonen, likt elektronen, är $s=\frac{1}{2}$ och $m_s=\pm\frac{1}{2}$ \parencite{college_physics}. Vinkeln av spinnet mot Z-axeln blir då $\theta_z=\arccos\sqrt\frac{1}{3}\approx54.7^\circ$. Eftersom $s$ alltid har samma värde för elektroner brukar spinnkvanttalet utelämnas från kvanttalen, eller syfta på $m_s$. $m_s=\frac{1}{2}$ innebär att $\vec{\mu}$ precesserar parallellt med $\vec{B_0}$ och $m_s=-\frac{1}{2}$ innebär att det precesserar antiparallellt mot fältet. Det parallella tillståndet har något lägre potentiell energi än det antiparallella tillståndet eftersom det tar ett arbete för att motverka magnetfältet \parencite{electron_spin}. Spinnprojektionstalet $m_s$ kan ändras hos en partikel eftersom det motsvarar olika energinivåer, medan magnituden $s$ är konstant. 
 
-Tillbaka till magnetkameran. Vi börjar med att bortse från gradientmagneterna. När en människa placeras i magnetkameran utsätts alla protonerna i kroppen för det magnetiska fältet $\vec{B_0}$ riktat från fötterna till huvudet på personen \parencite{understanding_mri}. Det gör att ungefär hälften av protonernas magnetiska moment precesserar i samma riktning som magnetfältet och hälften antiparallellt. Eftersom de antiparallella har en något högre energinivå kommer det dock finnas ett litet underskott av dessa. För 1 miljon protoner som precesserar antiparallellt finns det ungefär 10-20 stycken fler\footnote{Från egna beräkningar. Siffran i artikeln av \textcite{understanding_mri} är tagen från boken \citetitle{mri_made_easy} av \textcite{mri_made_easy}, och är inte helt rimlig för parametrarna i en magnetkamera.} som precesserar parallellt med $\vec{B_0}$. Alla protonerna precesserar med samma frekvens, men eftersom de har slumpmässig fasförskjutning kommer det totala magnetiska dipolmomentet $\vec{M}$ i personen vara riktat i precis samma riktning som $\vec{B_0}$, vilket illustreras i figur \ref{fig:spinn_vektorer}. Personens totala magnetisering i detta tillfälle kallas också för den longitudinella magnetiseringen.
+Tillbaka till magnetkameran. Vi börjar med att bortse från gradientmagneterna. När en människa placeras i magnetkameran utsätts alla protonerna i kroppen för det magnetiska fältet $\vec{B_0}$ riktat från fötterna till huvudet på personen \parencite{understanding_mri}. Det gör att ungefär hälften av protonernas magnetiska moment precesserar i samma riktning som magnetfältet och hälften antiparallellt. Eftersom de antiparallella har en något högre energinivå kommer det dock finnas ett litet underskott av dessa. För 1 miljon protoner som precesserar antiparallellt finns det ungefär 10-20 stycken fler\footnote{Från egna beräkningar. Siffran i artikeln av \textcite{understanding_mri} är tagen från boken \citetitle{mri_made_easy} av \textcite{mri_made_easy}, och är inte helt rimlig för parametrarna i en magnetkamera.} som precesserar parallellt med $\vec{B_0}$. Protonerna precesserar med (nästan) samma frekvenser, men eftersom de har slumpmässig fasförskjutning kommer det totala magnetiska dipolmomentet $\vec{M}$ i personen vara riktat i precis samma riktning som $\vec{B_0}$, vilket illustreras i figur \ref{fig:spinn_vektorer}. Personens totala magnetisering i detta tillfälle kallas också för den longitudinella magnetiseringen.
 
 \begin{figure}[ht]
 	\centering
@@ -133,17 +133,17 @@ Tillbaka till magnetkameran. Vi börjar med att bortse från gradientmagneterna.
 	\label{fig:spinn_vektorer}
 \end{figure}
 
-$\vec{M}$ kan inte mätas eftersom den ligger i riktning med $\vec{B_0}$ \parencite{understanding_mri}. För att få information om vävnaden och dess struktur använder man sig av de tidigare nämnda RF-spolarna. Strömmen i en RF-spole varierar med en frekvens vilket gör att magnetfältet som bildas av spolen oscillerar med den frekvensen; elektromagnetiska vågor sänds ut \parencite{mri_for_radiologists}. När frekvensen är inställd till larmorfrekvensen, alltså den som protonernas egna magnetfält precesserar med, så sker magnetisk resonans. Det innebär två saker \parencite{understanding_mri}:
-\begin{enumerate}
+$\vec{M}$ kan inte mätas eftersom den ligger i riktning med $\vec{B_0}$ \parencite{understanding_mri}. För att få information om vävnaden och dess struktur använder man sig av de tidigare nämnda RF-spolarna. Strömmen i en RF-spole varierar med en frekvens vilket gör att magnetfältet som bildas av spolen oscillerar med den frekvensen; elektromagnetiska vågor sänds ut \parencite{mri_for_radiologists}. När frekvensen är inställd till Larmorfrekvensen, alltså den som protonernas egna magnetfält precesserar med, så sker magnetisk resonans. Det innebär två saker \parencite{understanding_mri}:
+\begin{itemize}
 	\item Protoner kan ta upp energin $\Delta E=hf=\hbar\gamma B_0$ (ekvation \ref{eq:larmor}) och gå från det parallella spinntillståndet till det antiparallella tillståndet.
 	\item Alla protonernas magnetiska moment börjar precessera i fas med varandra och de elektromagnetiska vågorna, så att $\vec{M}$ precesserar på samma sätt som en enskild proton.
-\end{enumerate}
+\end{itemize}
 
-Förresten, varför är inte alla protoner i det parallella tillståndet om det har en lägre energinivå? Om protonen betedde sig som en vanlig magnet hade man ju kunnat tänka sig att alla borde lägga sig i riktning med magnetfältet. Eftersom vi nu vet energiskillnaden mellan de två spinntillstånden kan vi förklara varför det alltid är just den andelen parallella och antiparallella protoner, med hjälp av Boltzmannfaktorn \parencite[s. 90]{mri_lärobok}:
+Förresten, varför är inte alla protoner i det parallella tillståndet om det har en lägre energinivå? Om protonen betedde sig som en vanlig magnet hade ju alla lagt sig i riktning med magnetfältet. Eftersom vi nu vet energiskillnaden mellan de två spinntillstånden kan vi förklara varför det alltid är just den andelen parallella och antiparallella protoner, med hjälp av Boltzmannfaktorn \parencite[s. 90]{mri_lärobok}:
 \begin{equation}
 	\frac{n_d}{n_u}=e^\frac{-\Delta E}{kT}=e^\frac{-\hbar\gamma B_0}{kT}
 \end{equation}
-Där $n_d$ är antalet protoner i det antiparallella spinntillståndet och $n_u$ är antalet i det parallella tillståndet. $k$ är Boltzmanns konstant och T är temperaturen. Ekvationen anger alltså relationen mellan antalet protoner i tillståndet med högre energi och antalet i det andra tillståndet, som en funktion av temperaturen och skillnaden i energi mellan de två tillstånden. För $T=\SI{293}{K}$, $B_0=\SI{1.5}{T}$, och $n_d=\SI{1000000}{}$ ger detta att $n_u=\SI{1000011}{}$ protoner.
+Där $n_d$ är antalet protoner i det antiparallella spinntillståndet och $n_u$ är antalet i det parallella tillståndet. $k$ är Boltzmanns konstant och T är temperaturen. Ekvationen anger alltså relationen mellan sannolikheten av tillståndet med högre energi och sannolikheten av tillståndet med lägre energi, som en funktion av temperaturen och skillnaden i energi mellan de två tillstånden. För $T=\SI{310}{K}$ (kroppstemperatur), $B_0=\SI{1.5}{T}$, och $n_d=\SI{1000000}{}$ ger detta att $n_u\approx\SI{1000010}{}$ protoner. Orsaken är alltså delvis att energiskillnaden mellan tillstånden är så liten (\SI{5.3e-7}{eV}). Om det var normala magneter hade skillnaden i potentiell energi mellan de två riktningarna varit mer än enorm i jämförelse. Om temperaturen i personen vore väldigt nära den absoluta nollpunkten skulle andelen protoner i den högre energinivån också varit lägre.
 
 Hur många av protonerna som övergår till det antiparallella tillståndet på grund av radiovåg-pulsen beror på styrkan och varaktigheten av den \parencite{mri_for_radiologists}. Det innebär att vinkeln mot Z-axeln $\theta_z$ av $\vec{M}$ går från $0^\circ$ till en ny vinkel som är större ju fler protoner som tagit upp energi från pulsen. Här betraktar vi en RF-puls som gör att $\vec{M}$ ligger i XY-planet precis när pulsen stängs av, en så kallad $90^\circ$-puls. Andra pulsar används också, exempelvis $180^\circ$-pulsar där den resulterande magnetiseringen precesserar antiparallellt.
 
@@ -156,11 +156,17 @@ När pulsen är avslagen börjar protonerna frigöra överskottsenergin och där
 	\label{fig:relaxation}
 \end{figure}
 
-Det finns två delar av relaxationen, benämnda T1 och T2. T1-relaxation syftar på återställningen av den longitudinella magnetiseringen, alltså hur projektionen av $\vec{M}$ på Z-axeln, $M_z$, förändras över tid direkt efter RF-pulsen \parencite{understanding_mri}. T1-relaxationen beror bara på att en mycket liten andel protoner återgår till sin lägre energinivå där de precesserar parallellt med $B_0$ istället för antiparallellt. T1-relaxationens graf är en exponentiellt avtagande funktion som går från $0$ till den ursprungliga longitudinella magnetiseringen $M_{z0}$. T1-tiden bestämmer hur lång tid relaxationen tar. Eftersom det inte går att säga exakt när den är färdig bestämmer T1-tiden hur lång tid det tar för $M_z$ att gå från 0 till $1-\frac{1}{e}\approx63\%$ av sitt slutliga värde. Personens totala magnetiska dipolmoment i Z-led efter RF-pulsen kan alltså beskrivas av funktionen \parencite{t1_relaxation}: 
+Relaxationen delas upp i två delar som orskas av olika processer, benämnda T1 och T2 \parencite{understanding_mri}. T1-relaxation syftar på återställningen av den longitudinella magnetiseringen, alltså hur projektionen av $\vec{M}$ på Z-axeln, $M_z$, förändras över tid direkt efter RF-pulsen. T1-relaxationen beror bara på att en mycket liten andel protoner återgår till sin lägre energinivå där de precesserar parallellt med $\vec{B_0}$ istället för antiparallellt. T1-relaxationens graf är en exponentiellt avtagande funktion som går från $0$ till den ursprungliga longitudinella magnetiseringen $M_{z0}$. T1-tiden bestämmer hur lång tid relaxationen tar. Eftersom det inte går att säga exakt när den är färdig bestämmer T1-tiden hur lång tid det tar för $M_z$ att gå från 0 till $1-\frac{1}{e}\approx63\%$ av sitt slutliga värde. Personens totala magnetiska dipolmoment i Z-led efter RF-pulsen kan alltså beskrivas av funktionen \parencite{t1_relaxation}: 
 \begin{equation}
 	M_z(t)=M_{z0}(1-e^{-\frac{t}{T_1}})	
 \end{equation}
-T1-tiden beror på flödestätheten $B_0$ samt hur snabbt molekylerna runt protonen rör sig. Molekylernas rörelse genererar varierande magnetfält som påverkar protonen. Om molekylerna rör sig med frekvenser nära protonens larmorfrekvens är T1-tiden kortare eftersom det leder till att protonen mer effektivt ger bort energi. Eftersom larmorfrekvensen ökar linjärt med $B_0$ påverkar även magnetfältets styrka T1-tiden. Molekylens rörelsefrekvens 
+T1-tiden beror på flödestätheten $B_0$ samt hur snabbt molekylerna runt protonen rör sig. Molekylernas rörelse genererar varierande magnetfält som påverkar protonen \parencite{understanding_mri}. Om molekylerna rör sig med frekvenser nära protonens Larmorfrekvens är T1-tiden kortare eftersom det leder till att protonen mer effektivt ger bort energi. Eftersom Larmorfrekvensen ökar linjärt med $B_0$ påverkar även magnetfältets styrka T1-tiden. Generellt ger en starkare magnet en längre T1-tid \parencite{t1_relaxation}. Olika molekyler har olika rörelsefrekvens och därmed är T1-tiden olika för olika ämnen i kroppen \parencite{understanding_mri}. Till exempel är T1 för obundet vatten längre än för delvis bundet vatten. Fett brukar ha en kort T1-tid.
+
+T2-relaxationen orsakas endast av att precessionen av protonerna hamnar ur fas med varandra igen efter resonansen \parencite{understanding_mri}. Det finns två orsaker till detta:
+\begin{enumerate}
+	\item Protonernas egna magnetfält påverkar varandra och orsakar små variationer i Larmorfrekvensen hos individuella protoner enligt ekvation (\ref{eq:larmor}). Svängningar med olika frekvens hamnar ur fas över tid.
+	\item Om $B_0$-fältet inte är helt homogent så leder även det till att protonerna får små skillnader i Larmorfrekvens. Eftersom det är en konstant effekt är det möjligt att motverka den till en viss grad.
+\end{enumerate}
 
 \clearpage
 \section{Fördelar och nackdelar}
