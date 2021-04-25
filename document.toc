@@ -1,0 +1,15 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\babel@toc {swedish}{}
+\contentsline {section}{\numberline {1}Bakgrund}{3}%
+\contentsline {section}{\numberline {2}Utrustning}{5}%
+\contentsline {section}{\numberline {3}Kvantmekaniska principer}{7}%
+\contentsline {subsection}{\numberline {3.1}Spinn}{7}%
+\contentsline {subsection}{\numberline {3.2}Precession}{7}%
+\contentsline {section}{\numberline {4}Magnetkamerans funktion}{10}%
+\contentsline {subsection}{\numberline {4.1}Magnetisering och excitering}{10}%
+\contentsline {subsection}{\numberline {4.2}Relaxation}{11}%
+\contentsline {subsubsection}{\numberline {4.2.1}T1-relaxation}{12}%
+\contentsline {subsubsection}{\numberline {4.2.2}T2- och T2*-relaxation}{12}%
+\contentsline {subsection}{\numberline {4.3}Inducerad signal}{13}%
+\contentsline {subsection}{\numberline {4.4}Dimensionell avbildning}{14}%
+\contentsline {section}{\numberline {5}Avslutning}{15}%
